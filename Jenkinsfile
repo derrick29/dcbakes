@@ -1,5 +1,9 @@
-node {
-    stage("Upload to S3"){
-        echo "Uploading to S3"
+pipline {
+    stages {
+        stage("Upload to S3"){
+            steps{
+                echo "Uploading to S3"
+            }
+        }
     }
 }
