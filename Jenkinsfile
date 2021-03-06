@@ -1,4 +1,4 @@
-pipline {
+pipeline {
     stages {
         stage("Upload to S3"){
             steps{
