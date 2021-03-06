@@ -1,9 +1,19 @@
 pipeline {
+    agent any
     stages {
-        stage("Upload to S3"){
+        stage('pull from repo'){
             steps{
-                echo "Uploading to S3"
+                sh 'git clone https://github.com/derrick29/dcbakes.git'
             }
+        }
+        stage('Upload to S3'){
+            
+            steps{
+                withAWS(region:'us-east-1',credentials:'deploytos3') {
+                    s3Upload(bucket: 'dcbakes-store', workingDir:'dcbakes', includePathPattern:'**/*');
+                }
+            }
+            
         }
     }
 }
