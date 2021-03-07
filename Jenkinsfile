@@ -26,7 +26,7 @@ pipeline {
                 }
             }
         }
-        stage('Done'){
+        stage('Deployed'){
             steps{
                 sh 'echo Done!'
             }
